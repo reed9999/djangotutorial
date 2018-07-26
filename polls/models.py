@@ -8,7 +8,9 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return "Q{}: {}".format(self.id, self.question_text)
+        #Perhaps including the ID isn't a good idea since it shouldn't really
+        # be deterministic.
+        return "{}".format(self.question_text)
 
     def was_published_recently(self):
         now = timezone.now()
